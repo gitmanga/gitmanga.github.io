@@ -1,0 +1,35 @@
+body {
+  background-color: rgb(59, 59, 59);
+  padding: 0px;
+  margin: 0px;
+}
+
+.bar {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  height: 48px;
+  width: 100%;
+  position: absolute;
+}
+
+#menu-bar {
+  top: 0px;
+}
+
+#slider-bar {
+  bottom: 0px;
+}
+
+#control-area > * {
+  height: 100%;
+  width: calc(100% / 3);
+  float: left;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
