@@ -17,6 +17,7 @@ body {
   color: white;
   height: 44px;
   width: 100%;
+  min-width: 346px;
   position: absolute;
   padding: 3px 6px;
   font-size: 0;
