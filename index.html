@@ -2,17 +2,17 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
 
   <body>
     <div id="main" class="filled">
 
       <transition :name="viewport_shift_mode" mode="in-out">
-        <viewport id="viewport0" :images="viewport0_images" v-show="is_viewport0"></viewport>
+        <viewport id="viewport0" :data="data" :cur="cur" :mode="mode" v-show="viewport=='viewport0'"></viewport>
       </transition>
       <transition :name="viewport_shift_mode" mode="in-out">
-        <viewport id="viewport1" :images="viewport1_images" v-show="!is_viewport0"></viewport>
+        <viewport id="viewport1" :data="data" :cur="cur" :mode="mode" v-show="viewport=='viewport1'"></viewport>
       </transition>
 
       <transition name="fade">

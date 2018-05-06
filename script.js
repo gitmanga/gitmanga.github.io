@@ -3,22 +3,25 @@ var vm = new Vue({
 
     data: {
         is_show_ui: true,
-        is_twoside: true,
-        is_single_page: false,
-        is_viewport0: true,
-        viewport0_images: ['../gitmanga-mojyo-base/Vol.001/000.jpg'],
-        viewport1_images: [
-            '../gitmanga-mojyo-base/Vol.001/001.png',
-            '../gitmanga-mojyo-base/Vol.001/002.png',
-        ],
-        pages: [
-            '../gitmanga-mojyo-base/Vol.001/000.png',
-            '../gitmanga-mojyo-base/Vol.001/001.png',
-            '../gitmanga-mojyo-base/Vol.001/002.png',
-            '../gitmanga-mojyo-base/Vol.001/003.png',
-            '../gitmanga-mojyo-base/Vol.001/004.png',
-            '../gitmanga-mojyo-base/Vol.001/005.png',
-        ],
+        mode: 'twoside',
+        viewport: 'viewport0',
+        data: {
+            oneside: [
+                { viewport0: '../gitmanga-mojyo-base/Vol.001/000.jpg', viewport1: '../gitmanga-mojyo-base/Vol.001/001.png' },
+                { viewport0: '../gitmanga-mojyo-base/Vol.001/002.png', viewport1: '../gitmanga-mojyo-base/Vol.001/003.png' },
+                { viewport0: '../gitmanga-mojyo-base/Vol.001/004.png', viewport1: '../gitmanga-mojyo-base/Vol.001/005.png' },
+            ],
+            twoside: [
+                {
+                    viewport0: '../gitmanga-mojyo-base/Vol.001/000.jpg',
+                    viewport1: ['../gitmanga-mojyo-base/Vol.001/001.png', '../gitmanga-mojyo-base/Vol.001/002.png'],
+                },
+                {
+                    viewport0: ['../gitmanga-mojyo-base/Vol.001/003.png', '../gitmanga-mojyo-base/Vol.001/004.png'],
+                    viewport1: '../gitmanga-mojyo-base/Vol.001/005.png',
+                }
+            ]
+        },
         cur: 0,
         viewport_shift_mode: null,
     },
@@ -38,44 +41,34 @@ var vm = new Vue({
 
         NextPage: function() {
             this.viewport_shift_mode = 'viewport-right-shift-fade'
-
-            if (this.is_viewport0) {
-                if (this.viewport1_images.length) {
-                    this.is_viewport0 = false
-                }
+            if (this.viewport == 'viewport0') {
+                this.viewport = 'viewport1'
             } else {
-                if (this.is_twoside) {
-                    this.viewport0_images = [null, null]
-                } else {
-                    this.viewport0_images = [null]
-                }
-
-                this.is_viewport0 = true
-
-                if (this.is_twoside) {
-                    this.viewport1_images = [null, null]
-                } else {
-                    this.viewport1_images = [null]
+                if (this.data[this.mode].length > this.cur + 1) {
+                    this.cur++
+                    this.viewport = 'viewport0'
                 }
             }
         },
 
         LastPage: function() {
             this.viewport_shift_mode = 'viewport-left-shift-fade'
-            
-            if (!this.is_viewport0) {
-                this.is_viewport0 = true
+            if (this.viewport == 'viewport1') {
+                this.viewport = 'viewport0'
             } else {
-
+                if (this.cur > 0) {
+                    this.cur--
+                    this.viewport = 'viewport1'
+                }
             }
         },
     },
 
-    mounted: function() {
-        this.is_twoside = !(this.cur==0 && this.is_viewport0) && window.innerWidth > window.innerHeight
+    created: function() {
+        this.mode = window.innerWidth > window.innerHeight ? 'twoside' : 'oneside'
         
         window.addEventListener('resize', function() {
-            vm.is_twoside = !(vm.cur==0 && vm.is_viewport0) && window.innerWidth > window.innerHeight
+            vm.mode = window.innerWidth > window.innerHeight ? 'twoside' : 'oneside'
         })
     },
 })

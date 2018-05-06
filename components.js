@@ -1,18 +1,18 @@
 Vue.component('viewport', {
-    props: ['id', 'images'],
+    props: ['id', 'data', 'cur', 'mode'],
     template: 
         `<div class="viewport filled" :id=id>
-          <template v-if="images.length == 2">
+          <template v-if="mode=='twoside' && data.twoside[cur][id] instanceof Array">
             <div class="twoside page-left" >
-              <img :src=images[1]>
+              <img :src=data.twoside[cur][id][1]>
             </div>
             <div class="twoside page-right">
-              <img :src=images[0]>
+              <img :src=data.twoside[cur][id][0]>
             </div>
           </template>
           <template v-else>
             <div class="oneside">
-            <img :src=images[0]>
+              <img :src=data.oneside[cur][id]>
             </div>
           </template>
         </div>`
