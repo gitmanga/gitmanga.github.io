@@ -22,8 +22,10 @@ var vm = new Vue({
     },
 
     mounted: function() {
+        this.is_twoside = !this.is_single_page && window.innerWidth > window.innerHeight
+        
         window.addEventListener('resize', function() {
-            vm.is_twoside = !vm.is_single_page && this.innerWidth > this.innerHeight
+            vm.is_twoside = !vm.is_single_page && window.innerWidth > window.innerHeight
         })
     },
 })
