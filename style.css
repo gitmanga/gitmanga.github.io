@@ -31,6 +31,7 @@ body {
 
 #menu-bar {
   top:0;
+  z-index: 1000;
 }
 
 #slider-bar {
@@ -102,7 +103,6 @@ body {
   height: 100%;
   width: 40px;
   margin: 0 20px 0 0;
-  z-index: 1000;
 }
 
 #menu-bar .menu-field button {
