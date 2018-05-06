@@ -202,15 +202,12 @@ body {
   transition: all .2s;
 }
 
-.viewport-left-shift-fade-enter, .viewport-left-shift-fade-leave-active,
-.viewport-right-shift-fade-enter, .viewport-right-shift-fade-leave-active {
-  opacity: 0;
-}
-
-.viewport-left-shift-fade-enter {
+.viewport-left-shift-fade-enter,
+.viewport-right-shift-fade-leave-active {
   transform: translateX(100%);
 }
 
-.viewport-right-shift-fade-enter {
+.viewport-right-shift-fade-enter,
+.viewport-left-shift-fade-leave-active {
   transform: translateX(-100%);
 }
