@@ -8,21 +8,22 @@
   <body>
     <div id="main" class="filled">
 
-      <div class="viewport filled" id="viewport0">
+      <template v-if="is_viewport0">
         <template v-if="is_twoside">
-          <div class="twoside page-left">
-            <img src="file:///E:/Projects/gitmanga/gitmanga-mojyo-base/Vol.001/003.png" alt="">
-          </div>
-          <div class="twoside page-right">
-            <img src="file:///E:/Projects/gitmanga/gitmanga-mojyo-base/Vol.001/002.png" alt="">
-          </div>
+          <viewport-twoside id="viewport0" left=null right=null></viewport-twoside>
         </template>
         <template v-else>
-          <div class="oneside">
-            <img src="file:///E:/Projects/gitmanga/gitmanga-mojyo-base/Vol.001/002.png" alt="">
-          </div>
+          <viewport-oneside id="viewport0" image=null></viewport-oneside>
         </template>
-      </div>
+      </template>
+      <template v-else>
+        <template v-if="is_twoside">
+          <viewport-twoside id="viewport1" left=null right=null></viewport-twoside>
+        </template>
+        <template v-else>
+          <viewport-oneside id="viewport1" image=null></viewport-oneside>
+        </template>
+      </template>
 
       <transition name="fade">
         <div class="bar filled" id="menu-bar" v-if="is_show_ui">
@@ -67,5 +68,6 @@
     
   </body>
 
+  <script src="components.js"></script>
   <script src="script.js"></script>
 </html>

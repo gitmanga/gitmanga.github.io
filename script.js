@@ -5,6 +5,7 @@ var vm = new Vue({
         is_show_ui: true,
         is_twoside: true,
         is_single_page: false,
+        is_viewport0: true,
     },
 
     methods: {
