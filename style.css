@@ -17,7 +17,7 @@ body {
   color: white;
   height: 44px;
   width: 100%;
-  min-width: 346px;
+  min-width: 386px;
   position: absolute;
   padding: 3px 6px;
   font-size: 0;
@@ -84,7 +84,7 @@ body {
   top: -36px;
   left: 0;
   height: 36px;
-  padding-left: 340px;
+  padding-left: 380px;
   float: left;
   box-sizing: border-box;
   text-align: center;
@@ -99,7 +99,7 @@ body {
 }
 
 #title .padding {
-  width: 340px;
+  width: 380px;
   float: right;
   height: 100%;
 }
@@ -122,6 +122,10 @@ body {
 
 #menu-bar .menu-field #toggle-setting {
   background-position: -114px -28px;
+}
+
+#menu-bar .menu-field #toggle-fullscreen {
+  background-position: -152px -28px;
 }
 
 #menu-bar .menu-field #goto-homepage {
