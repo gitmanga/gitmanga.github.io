@@ -6,10 +6,17 @@
   </head>
 
   <body>
-    <div id="main">
+    <div id="main" class="filled">
+
+      <div class="viewport filled" id="viewport0">
+        <div class="twoside page-left">
+          <img src="https://raw.githubusercontent.com/gitmanga/gitmanga-mojyo-base/master/Vol.001/002.png" alt="">
+        </div>
+        <div class="twoside page-right"></div>
+      </div>
 
       <transition name="fade">
-        <div class="bar" id="menu-bar" v-if="is_show_ui">
+        <div class="bar filled" id="menu-bar" v-if="is_show_ui">
 
           <div class="menu-field separator">
             <button id="toggle-fullscreen" title="全屏" @click="ToggleFullScreen()"></button>
@@ -42,12 +49,13 @@
         <div class="bar" id="slider-bar" v-if="is_show_ui"></div>
       </transition>
 
-      <div id="control-area">
+    <div id="control-area" class="filled">
         <div></div>
         <div @click="ToggleUI()"></div>
         <div></div>
       </div>
     </div>
+    
   </body>
 
   <script src="script.js"></script>
