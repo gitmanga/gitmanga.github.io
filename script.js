@@ -3,6 +3,8 @@ var vm = new Vue({
 
     data: {
         is_show_ui: true,
+        is_twoside: true,
+        is_single_page: false,
     },
 
     methods: {
@@ -17,7 +19,13 @@ var vm = new Vue({
                 RequestFullScreen(this.$el)
             }
         },
-    }
+    },
+
+    mounted: function() {
+        window.addEventListener('resize', function() {
+            vm.is_twoside = !vm.is_single_page && this.innerWidth > this.innerHeight
+        })
+    },
 })
 
 function RequestFullScreen(el) {

@@ -9,12 +9,19 @@
     <div id="main" class="filled">
 
       <div class="viewport filled" id="viewport0">
-        <div class="twoside page-left">
-          <img src="file:///E:/Projects/gitmanga/gitmanga-mojyo-base/Vol.001/003.png" alt="">
-        </div>
-        <div class="twoside page-right">
-          <img src="file:///E:/Projects/gitmanga/gitmanga-mojyo-base/Vol.001/002.png" alt="">
-        </div>
+        <template v-if="is_twoside">
+          <div class="twoside page-left">
+            <img src="file:///E:/Projects/gitmanga/gitmanga-mojyo-base/Vol.001/003.png" alt="">
+          </div>
+          <div class="twoside page-right">
+            <img src="file:///E:/Projects/gitmanga/gitmanga-mojyo-base/Vol.001/002.png" alt="">
+          </div>
+        </template>
+        <template v-else>
+          <div class="oneside">
+            <img src="file:///E:/Projects/gitmanga/gitmanga-mojyo-base/Vol.001/002.png" alt="">
+          </div>
+        </template>
       </div>
 
       <transition name="fade">
