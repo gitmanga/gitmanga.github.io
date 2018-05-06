@@ -8,22 +8,12 @@
   <body>
     <div id="main" class="filled">
 
-      <template v-if="is_viewport0">
-        <template v-if="is_twoside">
-          <viewport-twoside id="viewport0" left=null right=null></viewport-twoside>
-        </template>
-        <template v-else>
-          <viewport-oneside id="viewport0" image=null></viewport-oneside>
-        </template>
-      </template>
-      <template v-else>
-        <template v-if="is_twoside">
-          <viewport-twoside id="viewport1" left=null right=null></viewport-twoside>
-        </template>
-        <template v-else>
-          <viewport-oneside id="viewport1" image=null></viewport-oneside>
-        </template>
-      </template>
+      <transition name="in-out-translate-fade" mode="in-out">
+        <viewport id="viewport0" v-bind:images="viewport0_images" v-show="is_viewport0"></viewport>
+      </transition>
+      <transition name="in-out-translate-fade" mode="in-out">
+        <viewport id="viewport1" v-bind:images="viewport1_images" v-show="!is_viewport0"></viewport>
+      </transition>
 
       <transition name="fade">
         <div class="bar filled" id="menu-bar" v-if="is_show_ui">
@@ -60,9 +50,9 @@
       </transition>
 
     <div id="control-area" class="filled">
-        <div></div>
+        <div @click="NextPage()"></div>
         <div @click="ToggleUI()"></div>
-        <div></div>
+        <div @click="LastPage()"></div>
       </div>
     </div>
     
