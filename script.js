@@ -6,7 +6,7 @@ var vm = new Vue({
     },
 
     methods: {
-        toggle_ui: function() {
+        ToggleUI: function() {
             this.is_show_ui = !this.is_show_ui
         }
     }
