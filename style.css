@@ -165,15 +165,16 @@ body {
   height: 100%;
   position: absolute;
   top: 0;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
 }
 
 .viewport .page-left {
-  background: red;
-  text-align: right;
+  flex-direction: row-reverse;
 }
 
 .viewport .page-right {
-  background: green;
   right: 0;
 }
 
