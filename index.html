@@ -12,7 +12,7 @@
         <div class="bar" id="menu-bar" v-if="is_show_ui">
 
           <div class="menu-field separator">
-            <button id="close" title="关闭阅览"></button>
+            <button id="toggle-fullscreen" title="全屏" @click="ToggleFullScreen()"></button>
           </div>
 
           <div id="title">
@@ -29,9 +29,6 @@
             </div>
             <div class="menu-field">
               <button id="toggle-setting" title="设置"></button>
-            </div>
-            <div class="menu-field">
-              <button id="toggle-fullscreen" title="全屏" @click="ToggleFullScreen()"></button>
             </div>
             <div class="menu-field">
               <button id="goto-homepage" title="返回主页"></button>
