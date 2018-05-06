@@ -20,6 +20,7 @@ var vm = new Vue({
             '../gitmanga-mojyo-base/Vol.001/005.png',
         ],
         cur: 0,
+        viewport_shift_mode: null,
     },
 
     methods: {
@@ -36,6 +37,8 @@ var vm = new Vue({
         },
 
         NextPage: function() {
+            this.viewport_shift_mode = 'viewport-right-shift-fade'
+
             if (this.is_viewport0) {
                 if (this.viewport1_images.length) {
                     this.is_viewport0 = false
@@ -55,7 +58,17 @@ var vm = new Vue({
                     this.viewport1_images = [null]
                 }
             }
-        }
+        },
+
+        LastPage: function() {
+            this.viewport_shift_mode = 'viewport-left-shift-fade'
+            
+            if (!this.is_viewport0) {
+                this.is_viewport0 = true
+            } else {
+
+            }
+        },
     },
 
     mounted: function() {

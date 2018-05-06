@@ -8,11 +8,11 @@
   <body>
     <div id="main" class="filled">
 
-      <transition name="in-out-translate-fade" mode="in-out">
-        <viewport id="viewport0" v-bind:images="viewport0_images" v-show="is_viewport0"></viewport>
+      <transition :name="viewport_shift_mode" mode="in-out">
+        <viewport id="viewport0" :images="viewport0_images" v-show="is_viewport0"></viewport>
       </transition>
-      <transition name="in-out-translate-fade" mode="in-out">
-        <viewport id="viewport1" v-bind:images="viewport1_images" v-show="!is_viewport0"></viewport>
+      <transition :name="viewport_shift_mode" mode="in-out">
+        <viewport id="viewport1" :images="viewport1_images" v-show="!is_viewport0"></viewport>
       </transition>
 
       <transition name="fade">
