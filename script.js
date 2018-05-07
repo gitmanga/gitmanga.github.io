@@ -14,6 +14,18 @@ var vm = new Vue({
                     {'../gitmanga-mojyo-base/Vol.001/001.png': 'normal'},
                     {'../gitmanga-mojyo-color/000.png': 'multiply'},
                 ],
+                [
+                    {'../gitmanga-mojyo-base/Vol.001/002.png': 'normal'},
+                ],
+                [
+                    {'../gitmanga-mojyo-base/Vol.001/003.png': 'normal'},
+                ],
+                [
+                    {'../gitmanga-mojyo-base/Vol.001/004.png': 'normal'},
+                ],
+                [
+                    {'../gitmanga-mojyo-base/Vol.001/005.png': 'normal'},
+                ],
             ],
             twoside: [
                 [
@@ -28,6 +40,17 @@ var vm = new Vue({
                     [
                         {'../gitmanga-mojyo-base/Vol.001/002.png': 'normal'},
                     ],
+                ],
+                [
+                    [
+                        {'../gitmanga-mojyo-base/Vol.001/003.png': 'normal'},
+                    ],
+                    [
+                        {'../gitmanga-mojyo-base/Vol.001/004.png': 'normal'},
+                    ],
+                ],
+                [
+                    {'../gitmanga-mojyo-base/Vol.001/005.png': 'normal'},
                 ],
             ]
         },
@@ -61,13 +84,24 @@ var vm = new Vue({
     },
 
     created: function() {
-        this.mode = window.innerWidth > window.innerHeight ? 'twoside' : 'oneside'
+        UpdateMode(this)
         
         window.addEventListener('resize', function() {
-            vm.mode = window.innerWidth > window.innerHeight ? 'twoside' : 'oneside'
+            UpdateMode(vm)
         })
     },
 })
+
+function UpdateMode(vm) {
+    var old_mode = vm.mode
+    vm.mode = window.innerWidth > window.innerHeight ? 'twoside' : 'oneside'
+    if (old_mode == 'twoside' && vm.mode == 'oneside') {
+        var tmp = vm.cur * 2
+        vm.cur = tmp ? tmp - 1 : 0
+    } else if (old_mode == 'oneside' && vm.mode == 'twoside') {
+        vm.cur = parseInt((vm.cur + 1) / 2)
+    }
+}
 
 function RequestFullScreen(el) {
     var reqeust = el.requestFullscreen
