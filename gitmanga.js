@@ -62,10 +62,10 @@ function LoadManga(vm) {
 
     AjaxGet(`${github}/${Object.values(vm.toc[0])[0]}`, function(response) {
         var pages = jsyaml.load(response)
-        for (i in pages) {
+        for (var i in pages) {
             var page = pages[i]
             var item = []
-            for (j in page) {
+            for (var j in page) {
                 var layer = page[j]
                 if (typeof(layer) == 'string') {
                     _layer = {}
@@ -85,4 +85,33 @@ function LoadManga(vm) {
             vm.data.twoside.push([vm.data.oneside[i], vm.data.oneside[i+1]])
         }
     })
+
+    if (registries.length <= 1) return
+
+    for (var i = 1; i < registries.length; ++i) {
+        var github = `https://raw.githubusercontent.com/${registries[i]}/master`
+
+        var toc = []
+        AjaxGet(`${github}/toc.yml`, function(response) {
+            toc = jsyaml.load(response)
+        })
+
+        AjaxGet(`${github}/${Object.values(toc[0])[0]}`, function(response) {
+            var pages = jsyaml.load(response)
+
+            for (var i in pages) {
+                var page = pages[i]
+                if (page) {
+                    for (var j in page) {
+                        var layer = page[j]
+                        
+                        _layer = {}
+                        _layer[`${github}/${Object.keys(layer)[0]}`] = Object.values(layer)[0]
+                        layer = _layer
+                        vm.data.oneside[i].push(layer)
+                    }
+                }
+            }
+        })
+    }
 }
