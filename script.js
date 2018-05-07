@@ -7,23 +7,21 @@ var vm = new Vue({
         viewport: 'viewport0',
         data: {
             oneside: [
-                { viewport0: '../gitmanga-mojyo-base/Vol.001/000.jpg', viewport1: '../gitmanga-mojyo-base/Vol.001/001.png' },
-                { viewport0: '../gitmanga-mojyo-base/Vol.001/002.png', viewport1: '../gitmanga-mojyo-base/Vol.001/003.png' },
-                { viewport0: '../gitmanga-mojyo-base/Vol.001/004.png', viewport1: '../gitmanga-mojyo-base/Vol.001/005.png' },
+                '../gitmanga-mojyo-base/Vol.001/000.jpg',
+                '../gitmanga-mojyo-base/Vol.001/001.png',
+                '../gitmanga-mojyo-base/Vol.001/002.png',
+                '../gitmanga-mojyo-base/Vol.001/003.png',
+                '../gitmanga-mojyo-base/Vol.001/004.png',
+                '../gitmanga-mojyo-base/Vol.001/005.png',
             ],
             twoside: [
-                {
-                    viewport0: '../gitmanga-mojyo-base/Vol.001/000.jpg',
-                    viewport1: ['../gitmanga-mojyo-base/Vol.001/001.png', '../gitmanga-mojyo-base/Vol.001/002.png'],
-                },
-                {
-                    viewport0: ['../gitmanga-mojyo-base/Vol.001/003.png', '../gitmanga-mojyo-base/Vol.001/004.png'],
-                    viewport1: '../gitmanga-mojyo-base/Vol.001/005.png',
-                }
+                '../gitmanga-mojyo-base/Vol.001/000.jpg',
+                ['../gitmanga-mojyo-base/Vol.001/001.png', '../gitmanga-mojyo-base/Vol.001/002.png'],
+                ['../gitmanga-mojyo-base/Vol.001/003.png', '../gitmanga-mojyo-base/Vol.001/004.png'],
+                '../gitmanga-mojyo-base/Vol.001/005.png',
             ]
         },
         cur: 0,
-        viewport_shift_mode: null,
     },
 
     methods: {
@@ -40,26 +38,14 @@ var vm = new Vue({
         },
 
         NextPage: function() {
-            this.viewport_shift_mode = 'viewport-right-shift-fade'
-            if (this.viewport == 'viewport0') {
-                this.viewport = 'viewport1'
-            } else {
-                if (this.data[this.mode].length > this.cur + 1) {
-                    this.cur++
-                    this.viewport = 'viewport0'
-                }
+            if (this.data[this.mode].length > this.cur + 1) {
+                this.cur++
             }
         },
 
         LastPage: function() {
-            this.viewport_shift_mode = 'viewport-left-shift-fade'
-            if (this.viewport == 'viewport1') {
-                this.viewport = 'viewport0'
-            } else {
-                if (this.cur > 0) {
-                    this.cur--
-                    this.viewport = 'viewport1'
-                }
+            if (this.cur > 0) {
+                this.cur--
             }
         },
     },

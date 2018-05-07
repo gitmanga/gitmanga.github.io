@@ -196,18 +196,3 @@ body {
   align-items: center;
   justify-content: center;
 }
-
-.viewport-left-shift-fade-enter-active, .viewport-left-shift-fade-leave-active,
-.viewport-right-shift-fade-enter-active, .viewport-right-shift-fade-leave-active {
-  transition: all .2s;
-}
-
-.viewport-left-shift-fade-enter,
-.viewport-right-shift-fade-leave-active {
-  transform: translateX(100%);
-}
-
-.viewport-right-shift-fade-enter,
-.viewport-left-shift-fade-leave-active {
-  transform: translateX(-100%);
-}

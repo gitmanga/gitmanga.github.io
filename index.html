@@ -8,12 +8,7 @@
   <body>
     <div id="main" class="filled">
 
-      <transition :name="viewport_shift_mode" mode="in-out">
-        <viewport id="viewport0" :data="data" :cur="cur" :mode="mode" v-show="viewport=='viewport0'"></viewport>
-      </transition>
-      <transition :name="viewport_shift_mode" mode="in-out">
-        <viewport id="viewport1" :data="data" :cur="cur" :mode="mode" v-show="viewport=='viewport1'"></viewport>
-      </transition>
+      <viewport :data="data" :cur="cur" :mode="mode" v-show="viewport=='viewport0'"></viewport>
 
       <transition name="fade">
         <div class="bar filled" id="menu-bar" v-if="is_show_ui">
