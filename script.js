@@ -11,30 +11,6 @@ var vm = new Vue({
             oneside: [
             ],
             twoside: [
-                [
-                    {'../gitmanga-mojyo-base/Vol.001/000.jpg': 'normal'},
-                    {'../gitmanga-mojyo-color/000.png': 'multiply'},
-                ],
-                [
-                    [
-                        {'../gitmanga-mojyo-base/Vol.001/001.png': 'normal'},
-                        {'../gitmanga-mojyo-color/000.png': 'multiply'},
-                    ],
-                    [
-                        {'../gitmanga-mojyo-base/Vol.001/002.png': 'normal'},
-                    ],
-                ],
-                [
-                    [
-                        {'../gitmanga-mojyo-base/Vol.001/003.png': 'normal'},
-                    ],
-                    [
-                        {'../gitmanga-mojyo-base/Vol.001/004.png': 'normal'},
-                    ],
-                ],
-                [
-                    {'../gitmanga-mojyo-base/Vol.001/005.png': 'normal'},
-                ],
             ]
         },
         cur: 0,

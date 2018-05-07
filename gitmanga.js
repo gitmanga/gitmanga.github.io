@@ -80,5 +80,9 @@ function LoadManga(vm) {
             }
             vm.data.oneside.push(item)
         }
+        vm.data.twoside.push(vm.data.oneside[0])
+        for (i = 1; i < vm.data.oneside.length; i=i+2) {
+            vm.data.twoside.push([vm.data.oneside[i], vm.data.oneside[i+1]])
+        }
     })
 }
