@@ -7,18 +7,27 @@ var vm = new Vue({
         viewport: 'viewport0',
         data: {
             oneside: [
-                '../gitmanga-mojyo-base/Vol.001/000.jpg',
-                '../gitmanga-mojyo-base/Vol.001/001.png',
-                '../gitmanga-mojyo-base/Vol.001/002.png',
-                '../gitmanga-mojyo-base/Vol.001/003.png',
-                '../gitmanga-mojyo-base/Vol.001/004.png',
-                '../gitmanga-mojyo-base/Vol.001/005.png',
+                [
+                    {'../gitmanga-mojyo-base/Vol.001/000.jpg': 'normal'},
+                ],
+                [
+                    {'../gitmanga-mojyo-base/Vol.001/001.png': 'normal'},
+                    {'../gitmanga-mojyo-color/Vol.001/001.png': 'multiply'},
+                ],
             ],
             twoside: [
-                '../gitmanga-mojyo-base/Vol.001/000.jpg',
-                ['../gitmanga-mojyo-base/Vol.001/001.png', '../gitmanga-mojyo-base/Vol.001/002.png'],
-                ['../gitmanga-mojyo-base/Vol.001/003.png', '../gitmanga-mojyo-base/Vol.001/004.png'],
-                '../gitmanga-mojyo-base/Vol.001/005.png',
+                [
+                    {'../gitmanga-mojyo-base/Vol.001/000.jpg': 'normal'},
+                ],
+                [
+                    [
+                        {'../gitmanga-mojyo-base/Vol.001/001.png': 'normal'},
+                        {'../gitmanga-mojyo-color/001.png': 'multiply'},
+                    ],
+                    [
+                        {'../gitmanga-mojyo-base/Vol.001/002.png': 'normal'},
+                    ],
+                ],
             ]
         },
         cur: 0,
