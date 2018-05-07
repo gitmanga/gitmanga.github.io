@@ -19,7 +19,7 @@
 
           <div id="title">
             <div class="padding"></div>
-            <span class="text">私がモテないのはどう考えてもお前らが悪い! 1巻</span>
+            <span class="text">{{ meta.title }} {{ Object.keys(toc[0])[0] }}</span>
           </div>
 
           <div id="submenu">
@@ -53,6 +53,8 @@
     
   </body>
 
+  <script src="https://cdn.bootcss.com/js-yaml/3.11.0/js-yaml.js"></script>
   <script src="viewport.js"></script>
+  <script src="gitmanga.js"></script>
   <script src="script.js"></script>
 </html>
